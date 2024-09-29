@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nine_ms/screens/home_page.dart';
 
-import '../../components/common_button.dart';
 import '../../helper/colors_helper.dart';
 import '../../helper/dimensn_helper.dart';
-import '../../helper/font_helper.dart';
+
 import '../../helper/string_helper.dart';
 import '../../networkManager/repository.dart';
 import '../home_page_2.dart';
@@ -38,15 +37,12 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
       if (response['success'] == true) {
-        // Handle successful login
         print('Login successful!');
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
         );
-        // Save token or navigate to another screen
       } else {
-        // Handle login error
         print('Login failed: ${response['message']}');
       }
     } catch (error) {

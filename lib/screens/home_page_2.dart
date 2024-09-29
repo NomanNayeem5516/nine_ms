@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../models/featured.dart';
-import '../models/slider.dart';
+
 import '../networkManager/repository.dart';
 
 

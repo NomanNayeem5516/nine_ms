@@ -4,8 +4,7 @@ import 'package:nine_ms/screens/authScreens/login_screen.dart';
 import 'package:nine_ms/screens/authScreens/registration.dart';
 
 import '../helper/string_helper.dart';
-import 'home_page.dart';
-import 'home_page_2.dart';
+
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -19,7 +18,8 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(StringHelper.getMapList),
+        title: const Text(StringHelper.welCome),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(

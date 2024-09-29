@@ -34,24 +34,22 @@ class _SignupPageState extends State<SignupPage> {
       );
 
       if (response['success'] == true) {
-        // Handle successful sign-up
         print('Sign-up successful!');
-        // Navigate to HomePage
+
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
         );
       } else {
-        // Handle sign-up error
         print('Sign-up failed: ${response['message']}');
-        // Optionally show an error message
+
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Sign-up failed: ${response['message']}')),
         );
       }
     } catch (error) {
       print('Error during sign-up: $error');
-      // Optionally show an error message
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error during sign-up: $error')),
       );
@@ -95,9 +93,9 @@ class _SignupPageState extends State<SignupPage> {
             isLoading
                 ? const CircularProgressIndicator()
                 : ElevatedButton(
-              onPressed: signup,
-              child: const Text('Sign Up'),
-            ),
+                    onPressed: signup,
+                    child: const Text('Sign Up'),
+                  ),
           ],
         ),
       ),
