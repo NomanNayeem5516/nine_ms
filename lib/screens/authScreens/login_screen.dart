@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nine_ms/screens/main_page.dart';
 import 'package:nine_ms/screens/home_page.dart';
 
 import '../../helper/colors_helper.dart';
@@ -119,7 +120,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       MaterialPageRoute(
                           builder: (context) => const HomePage4()));
                 },
-                child: const Text("product4"))
+                child: const Text("product4")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MainPage()));
+                },
+                child: const Text("Main"))
           ],
         ),
       ),
