@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../models/featutedProduct.dart';
+
 class ProductDetailsScreen extends StatelessWidget {
   final Data productData;
 
@@ -9,9 +10,9 @@ class ProductDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Colors.grey[100],
-      appBar: AppBar(
       backgroundColor: Colors.grey[100],
+      appBar: AppBar(
+        backgroundColor: Colors.grey[100],
         title: Text(productData.name ?? 'Product Details'),
       ),
       body: Padding(
@@ -35,9 +36,9 @@ class ProductDetailsScreen extends StatelessWidget {
             const SizedBox(height: 8),
             productData.hasDiscount == true
                 ? Text(
-              'Discounted Price: ${productData.strokedPrice ?? 'N/A'}',
-              style: const TextStyle(fontSize: 18, color: Colors.red),
-            )
+                    'Discounted Price: ${productData.strokedPrice ?? 'N/A'}',
+                    style: const TextStyle(fontSize: 18, color: Colors.red),
+                  )
                 : const Text('No Discount Available'),
             const SizedBox(height: 16),
             productData.rating != null

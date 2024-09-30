@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../helper/assets_helper.dart';
 import '../../helper/dimensn_helper.dart';
 import '../welcome_page.dart';
-import 'login_screen.dart';
+
 
 
 class SplashScreen extends StatefulWidget {
