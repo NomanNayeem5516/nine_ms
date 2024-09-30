@@ -17,4 +17,11 @@ class StringHelper{
   static const String welCome='WelCome';
   static const String have='Do You Have Any Account Please';
   static const String havenot ="Don't Have Any Account Please";
+  static const String welcomeAgain ="Welcome Again";
+  static const String signUpToContinue ="Sign up to continue";
+  static const String name='Name';
+  static const String email='Email';
+  static const String signUp='Sign Up';
+  static const String password='Password';
+  static const String details='Details';
 }

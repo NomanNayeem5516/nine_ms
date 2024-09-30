@@ -18,6 +18,7 @@ class DimensnHelper{
   static const double dimensn_100=100.0;
   static const double dimensn_150=150.0;
   static const double dimensn_200=200.0;
+  static const double dimensn_25=25.0;
 
 
 }

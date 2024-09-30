@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:nine_ms/components/common_button.dart';
 import 'package:nine_ms/screens/main_page.dart';
-import 'package:nine_ms/screens/home_page.dart';
 
 import '../../helper/colors_helper.dart';
 import '../../helper/dimensn_helper.dart';
 
 import '../../helper/string_helper.dart';
 import '../../networkManager/repository.dart';
-import '../home_page_2.dart';
-import '../home_page_3.dart';
-import '../home_page_4.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -41,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
         print('Login successful!');
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const HomePage()),
+          MaterialPageRoute(builder: (context) => const MainPage()),
         );
       } else {
         print('Login failed: ${response['message']}');
@@ -67,69 +65,55 @@ class _LoginScreenState extends State<LoginScreen> {
             top: DimensnHelper.dimensn_20,
             left: DimensnHelper.dimensn_20,
             right: DimensnHelper.dimensn_20),
-        child: Column(
-          children: [
-            TextField(
-              controller: _emailController,
-              decoration: const InputDecoration(
-                labelText: 'Email',
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              Lottie.asset(
+                'assets/signin.json',
+                height: 200,
+                width: 150,
               ),
-            ),
-            TextField(
-              controller: _passwordController,
-              decoration: const InputDecoration(
-                labelText: 'Password',
+              const Text(
+                'Welcome Again',
               ),
-              obscureText: true,
-            ),
-            const SizedBox(height: 20),
-            isLoading
-                ? const CircularProgressIndicator()
-                : ElevatedButton(
-                    onPressed: login,
-                    child: const Text('Login'),
-                  ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomePage()));
-                },
-                child: const Text("slider")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomePage2()));
-                },
-                child: const Text("feateredC")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomePage3()));
-                },
-                child: const Text("product")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomePage4()));
-                },
-                child: const Text("product4")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MainPage()));
-                },
-                child: const Text("Main"))
-          ],
+              const Text(
+                'Sign in to continue',
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              TextField(
+                controller: _emailController,
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                ),
+              ),
+              TextField(
+                controller: _passwordController,
+                decoration: const InputDecoration(
+                  labelText: 'Password',
+                ),
+                obscureText: true,
+              ),
+              const SizedBox(height: 20),
+              isLoading
+                  ? const CircularProgressIndicator()
+                  : CommonButton(
+                      onPress: login,
+                      child: const Text('Login'),
+                    ),
+              SizedBox(height: 20,),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MainPage()));
+                  },
+                  child: const Text("Direct Home"))
+            ],
+          ),
         ),
       ),
     );

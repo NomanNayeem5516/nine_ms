@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:nine_ms/components/common_button.dart';
+import 'package:nine_ms/screens/main_page.dart';
 
+import '../../helper/string_helper.dart';
 import '../../networkManager/repository.dart';
-import '../home_page.dart';
-// Import the HomePage class
+
+
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
@@ -38,7 +42,7 @@ class _SignupPageState extends State<SignupPage> {
 
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const HomePage()),
+          MaterialPageRoute(builder: (context) => const MainPage()),
         );
       } else {
         print('Sign-up failed: ${response['message']}');
@@ -64,38 +68,62 @@ class _SignupPageState extends State<SignupPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sign Up'),
+        title: const Text(StringHelper.signUp,),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            Lottie.asset(
+              'assets/signupOK.json',
+              height: 200,
+              width: 150,
+            ),
+            const Text(
+              StringHelper.welcomeAgain,
+
+            ),
+            const Text(
+              StringHelper.signUpToContinue,
+
+            ),
+            const SizedBox(
+              height: 15,
+            ),
             TextField(
               controller: _nameController,
               decoration: const InputDecoration(
-                labelText: 'Name',
+                labelText: StringHelper.name,
               ),
             ),
             TextField(
               controller: _emailController,
               decoration: const InputDecoration(
-                labelText: 'Email',
+                labelText: StringHelper.email,
               ),
             ),
             TextField(
               controller: _passwordController,
               decoration: const InputDecoration(
-                labelText: 'Password',
+                labelText: StringHelper.password,
               ),
               obscureText: true,
             ),
             const SizedBox(height: 20),
             isLoading
                 ? const CircularProgressIndicator()
-                : ElevatedButton(
-                    onPressed: signup,
-                    child: const Text('Sign Up'),
+                : CommonButton(
+                    onPress: signup,
+                    child: const Text(StringHelper.signUp,),
                   ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MainPage()));
+                },
+                child: const Text("Direct Home"))
           ],
         ),
       ),

@@ -11,5 +11,6 @@ class ColorsHelper {
   static const Color blackColor=Colors.black;
   static const Color primaryColor=Colors.blueGrey;
   static const Color blueColor=Colors.blue;
+  static const Color greenColor=Colors.green;
   // static const Color secondaryColor=Colors.black;
 }
