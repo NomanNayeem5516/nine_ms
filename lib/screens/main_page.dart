@@ -58,12 +58,12 @@ class _MainPageState extends State<MainPage> {
                 },
                 icon: pageIndex == 1
                     ? const Icon(
-                  Icons.notifications_rounded,
+                  Icons.production_quantity_limits,
                   color: Colors.blue,
                   size: 35,
                 )
                     : const Icon(
-                  Icons.notifications_rounded,
+                  Icons.production_quantity_limits,
                   color: Colors.grey,
                   size: 35,
                 )),
